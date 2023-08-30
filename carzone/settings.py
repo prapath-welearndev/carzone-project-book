@@ -163,6 +163,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_HOST = 'smtp.gmail.com' # เราจะส่งอีเมล์ด้วย smtp ของ Gmail
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'ipathsaid@gmail.com'
-EMAIL_HOST_PASSWORD = 'yzgpuaxgzpdggfdz'
+EMAIL_HOST_PASSWORD = ''
 EMAIL_USE_TLS = True
 
