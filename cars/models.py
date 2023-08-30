@@ -3,6 +3,8 @@ from datetime import datetime
 from ckeditor.fields import RichTextField
 from multiselectfield import MultiSelectField
 
+from django.core.validators import MaxValueValidator
+
 # Create your models here.
 class Car(models.Model):
     car_title = models.CharField(max_length=255)
@@ -93,7 +95,8 @@ class Car(models.Model):
         ('Wind Deflector', 'Wind Deflector'),
         ('Bluetooth Handset', 'Bluetooth Handset'),
     )
-    features = MultiSelectField(choices=features_choices)
+    # features = MultiSelectField(choices=features_choices)
+    features = MultiSelectField(choices=features_choices, validators=[MaxValueValidator(10)])
     body_style = models.CharField(max_length=100)
     engine = models.CharField(max_length=100)
     transmission = models.CharField(max_length=100)

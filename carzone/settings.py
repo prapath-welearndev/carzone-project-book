@@ -26,11 +26,12 @@ SECRET_KEY = 'y-gz&(p(+ddb2y5r2@k2biurv4=_81dea+wbp5qgbxoe&doy7('
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+LOGIN_REDIRECT_URL = 'dashboard'
 
 # Application definition
 
 INSTALLED_APPS = [
+    'contacts.apps.ContactsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,17 @@ INSTALLED_APPS = [
     'ckeditor', 
     'multiselectfield',
     'django.contrib.humanize',
+    'accounts.apps.AccountsConfig',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # Providers
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+
+
 ]
 
 MIDDLEWARE = [
@@ -135,4 +147,22 @@ STATICFILES_DIRS = [
 #media settings
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: "danger",
+}
+
+SITE_ID = 1 
+SOCIALACCOUNT_LOGIN_ON_GET = True
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Email Setting
+EMAIL_HOST = 'smtp.gmail.com' # เราจะส่งอีเมล์ด้วย smtp ของ Gmail
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'ipathsaid@gmail.com'
+EMAIL_HOST_PASSWORD = 'yzgpuaxgzpdggfdz'
+EMAIL_USE_TLS = True
 
