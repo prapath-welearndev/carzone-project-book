@@ -215,12 +215,11 @@
                             </button>
                           </div>
                           <div class="modal-body">
-                            <form action="{% url 'inquiry' %}" method='POST'>
+                            <form action="{% url 'inquiry' %}" method="POST">
                                 {% csrf_token %} 
                                 {% if user.is_authenticated %}
                                     <input type='hidden' name='user_id' value="{{ user.id }}">
                                 {% else %}
-                                    <!--  ถึง userไม่ได้ ทำการ Login เราก็ยังต้องการ user_id อยู่ แต่เราจะกำหนดให้มันเป็น 0 แทน -->>
                                     <input type='hidden' name='user_id' value"0">
                                 {% endif %}
                                 <input type='hidden' name='car_id' value="{{ single_car.id }}">
