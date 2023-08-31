@@ -15,6 +15,8 @@ import environ
 env = environ.Env()
 environ.Env.read_env()
 
+import dj_database_url 
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,10 +26,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y-gz&(p(+ddb2y5r2@k2biurv4=_81dea+wbp5qgbxoe&doy7('
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 LOGIN_REDIRECT_URL = 'dashboard'
@@ -94,15 +96,21 @@ WSGI_APPLICATION = 'carzone.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'carzone_db_book',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Toom007a',
+#         'HOST': 'localhost'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'carzone_db_book',
-        'USER': 'postgres',
-        'PASSWORD': 'Toom007a',
-        'HOST': 'localhost'
-    }
+    'default': dj_database_url.parse(env('DATABASE_URL'))
 }
+
+
+
 
 
 
