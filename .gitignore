@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/django
 # Edit at https://www.toptal.com/developers/gitignore?templates=django
 
+cors.json
+
 ### Django ###
 *.log
 *.pot
@@ -133,6 +135,8 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+# mydoc
+mydoc/
 # Dump file
 project_dump.json
 
